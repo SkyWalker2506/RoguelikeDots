@@ -1,10 +1,10 @@
-﻿using EcsDotsScripts.Components;
+﻿using RoguelikeDots.Components;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
 
-namespace EcsDotsScripts.Systems
+namespace RoguelikeDots.Systems
 {
     [BurstCompile]
     [UpdateInGroup(typeof(SimulationSystemGroup))]
@@ -31,9 +31,10 @@ namespace EcsDotsScripts.Systems
     {
         public float DeltaTime;
 
-        public void Execute(Entity entity, ref LocalTransform localTransform, in MovementData movementData)
+        private void Execute(Entity entity, ref LocalTransform localTransform, ref MovementData movementData)
         {
-            float3 direction = new float3(movementData.MoveDirection, 0);
+            if(movementData.MoveDirection.Equals(float2.zero)) return;
+            float3 direction = math.normalize(new float3(movementData.MoveDirection, 0));
             localTransform.Position += direction * movementData.MoveSpeed * DeltaTime;
         }
     }
