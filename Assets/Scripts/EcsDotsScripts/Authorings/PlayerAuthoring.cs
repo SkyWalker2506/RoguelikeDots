@@ -8,18 +8,20 @@ namespace RoguelikeDots.Authorings
     public class PlayerAuthoring : MonoBehaviour
     {
         public float MoveSpeed;
-    }
-
-    public class PlayerBaker : Baker<PlayerAuthoring>
-    {
-        public override void Bake(PlayerAuthoring authoring)
+        
+        private class PlayerBaker : Baker<PlayerAuthoring>
         {
-            var entity = GetEntity(TransformUsageFlags.Dynamic);
-            AddComponent(entity,new PlayerTag());
-            AddComponent(entity, new MovementData
+            public override void Bake(PlayerAuthoring authoring)
             {
-                MoveSpeed = authoring.MoveSpeed,
-            });
+                var entity = GetEntity(TransformUsageFlags.Dynamic);
+                AddComponent(entity,new PlayerTag());
+                AddComponent(entity, new MovementData
+                {
+                    MoveSpeed = authoring.MoveSpeed,
+                });
+            }
         }
     }
+
+    
 }
