@@ -1,32 +1,35 @@
 ﻿using RoguelikeDots.Components;
 using Unity.Entities;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace RoguelikeDots.Authorings
 {
     public class MapSpawnerAuthoring : MonoBehaviour
     {
-        public GameObject GridPrefab;
-        public int GridWidth = 3;
-        public int GridHeight = 3;
-        public Vector2 MapSize = new Vector2(20.5f,20.5f);
-        public int MaxSpawnCount => GridWidth * GridHeight;
-    }
-    
-    public class MapSpawnerAuthoringBaker : Baker<MapSpawnerAuthoring>
-    {
-        public override void Bake(MapSpawnerAuthoring authoring)
-        {   
-            var entity = GetEntity(TransformUsageFlags.Dynamic);
-                
-            AddComponent(entity, new MapSpawnerData
+        [SerializeField] private GameObject gridPrefab;
+        [SerializeField] private int gridWidth = 3;
+        [SerializeField] private int gridHeight = 3;
+        [SerializeField] private Vector2 mapSize = new Vector2(20.4f,20.4f);
+        private int MaxSpawnCount => gridWidth * gridHeight;
+        
+        private class MapSpawnerAuthoringBaker : Baker<MapSpawnerAuthoring>
+        {
+            public override void Bake(MapSpawnerAuthoring authoring)
             {   
-                GridPrefab =  GetEntity(authoring.GridPrefab,TransformUsageFlags.Dynamic),
-                GridWidth = authoring.GridWidth,
-                GridHeight = authoring.GridHeight,
-                MapSize = authoring.MapSize,
-                MaxSpawnCount = authoring.MaxSpawnCount 
-            }); 
+                var entity = GetEntity(TransformUsageFlags.Dynamic);
+                
+                AddComponent(entity, new MapSpawnerData
+                {   
+                    GridPrefab =  GetEntity(authoring.gridPrefab,TransformUsageFlags.Dynamic),
+                    GridWidth = authoring.gridWidth,
+                    GridHeight = authoring.gridHeight,
+                    MapSize = authoring.mapSize,
+                    MaxSpawnCount = authoring.MaxSpawnCount 
+                }); 
+            }
         }
     }
+    
+    
 }

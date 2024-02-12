@@ -167,10 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d432cc61e7d4a8c837e94c1211eeb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GridPrefab: {fileID: 5532696051796469031, guid: a211a2d67a9b24d45b241a09f9243999, type: 3}
-  GridWidth: 3
-  GridHeight: 3
-  MapSize: {x: 20.5, y: 20.5}
+  gridPrefab: {fileID: 5532696051796469031, guid: a211a2d67a9b24d45b241a09f9243999, type: 3}
+  gridWidth: 5
+  gridHeight: 4
+  mapSize: {x: 20.4, y: 20.4}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
