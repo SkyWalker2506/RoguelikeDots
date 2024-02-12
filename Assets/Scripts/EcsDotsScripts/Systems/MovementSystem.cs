@@ -6,12 +6,11 @@ using Unity.Transforms;
 
 namespace RoguelikeDots.Systems
 {
-    [BurstCompile]
     [UpdateInGroup(typeof(SimulationSystemGroup))]
     [UpdateBefore(typeof(TransformSystemGroup))]
+    [BurstCompile]
     public partial struct MovementSystem :ISystem
     {
-
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
@@ -21,9 +20,7 @@ namespace RoguelikeDots.Systems
             {
                 DeltaTime = time
             }.ScheduleParallel();
-
         }
-
     } 
     
     [BurstCompile]
@@ -31,7 +28,7 @@ namespace RoguelikeDots.Systems
     {
         public float DeltaTime;
 
-        private void Execute(Entity entity, ref LocalTransform localTransform, ref MovementData movementData)
+        private void Execute(ref LocalTransform localTransform, ref MovementData movementData)
         {
             if(movementData.MoveDirection.Equals(float2.zero)) return;
             float3 direction = math.normalize(new float3(movementData.MoveDirection, 0));
