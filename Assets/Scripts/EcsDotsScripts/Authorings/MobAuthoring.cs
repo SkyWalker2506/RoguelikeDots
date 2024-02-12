@@ -24,6 +24,10 @@ namespace RoguelikeDots.Authorings
                     AttackCooldown = authoring.attackCooldown,
                     AttackPassedTime = authoring.attackCooldown
                 });
+                AddComponent(entity,new MovementData()
+                {
+                    MoveSpeed = authoring.moveSpeed
+                });
             }
         }
     }

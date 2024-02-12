@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridPrefab: {fileID: 5532696051796469031, guid: a211a2d67a9b24d45b241a09f9243999, type: 3}
   gridWidth: 5
-  gridHeight: 4
+  gridHeight: 5
   mapSize: {x: 20.4, y: 20.4}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
