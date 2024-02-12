@@ -55,8 +55,6 @@ namespace RoguelikeDots.Systems
             }
         }
         
-        
-        
     }
    
 }

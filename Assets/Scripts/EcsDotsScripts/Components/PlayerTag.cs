@@ -4,6 +4,5 @@ namespace RoguelikeDots.Components
 {
     public struct PlayerTag : IComponentData
     {
-        
     }
 }

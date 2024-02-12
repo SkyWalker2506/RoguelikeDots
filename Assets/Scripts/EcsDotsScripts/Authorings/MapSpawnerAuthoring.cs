@@ -1,7 +1,6 @@
 ﻿using RoguelikeDots.Components;
 using Unity.Entities;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace RoguelikeDots.Authorings
 {
@@ -17,7 +16,7 @@ namespace RoguelikeDots.Authorings
         {
             public override void Bake(MapSpawnerAuthoring authoring)
             {   
-                var entity = GetEntity(TransformUsageFlags.Dynamic);
+                var entity = GetEntity(TransformUsageFlags.None);
                 
                 AddComponent(entity, new MapSpawnerData
                 {   

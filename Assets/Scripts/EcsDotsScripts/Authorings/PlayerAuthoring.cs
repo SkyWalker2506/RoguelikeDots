@@ -1,5 +1,6 @@
 using RoguelikeDots.Components;
 using Unity.Entities;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace RoguelikeDots.Authorings
@@ -14,6 +15,10 @@ namespace RoguelikeDots.Authorings
             {
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
                 AddComponent(entity,new PlayerTag());
+                AddComponent(entity,new LookData()
+                {
+                    LookDirection = new float2(1,0)
+                });
                 AddComponent(entity, new MovementData
                 {
                     MoveSpeed = authoring.moveSpeed,

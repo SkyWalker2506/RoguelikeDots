@@ -43,6 +43,11 @@ namespace RoguelikeDots.Systems
             var movementData =SystemAPI.GetComponent<MovementData>(playerEntity); 
             movementData.MoveDirection = direction;
             SystemAPI.SetComponent(playerEntity, movementData);
+            if(newDirection.Equals(Vector2.zero)) return;
+            var playerData = SystemAPI.GetComponent<LookData>(playerEntity);
+            playerData.LookDirection = direction;
+            SystemAPI.SetComponent(playerEntity, playerData);
+            
         }
     }
 }
