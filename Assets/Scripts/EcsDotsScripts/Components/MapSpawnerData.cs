@@ -12,9 +12,4 @@ namespace RoguelikeDots.Components
         public int MaxSpawnCount;
         public bool IsInitialized;
     }
-    
-    public struct GridBufferElementData : IBufferElementData
-    {
-        public Entity Entity;
-    }
 }

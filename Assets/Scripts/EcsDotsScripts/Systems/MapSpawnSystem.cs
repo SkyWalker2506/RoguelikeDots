@@ -1,3 +1,4 @@
+using RoguelikeDots.BufferElementData;
 using RoguelikeDots.Components;
 using Unity.Burst;
 using Unity.Entities;

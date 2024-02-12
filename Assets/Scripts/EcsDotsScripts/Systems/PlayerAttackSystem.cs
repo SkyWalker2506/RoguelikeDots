@@ -28,7 +28,6 @@ namespace RoguelikeDots.Systems
             new PlayerAttackJob
             {
                 DeltaTime = SystemAPI.Time.DeltaTime,
-                PlayerEntity = playerEntity,
                 PlayerDirection = SystemAPI.GetComponent<LookData>(playerEntity).LookDirection,
                 PlayerPosition = SystemAPI.GetComponent<LocalTransform>(playerEntity).Position.xy,
                 ECB = ECB.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter()
@@ -40,17 +39,16 @@ namespace RoguelikeDots.Systems
     public partial struct PlayerAttackJob : IJobEntity
     {
         public float DeltaTime;
-        public Entity PlayerEntity;
         public float2 PlayerDirection;
         public float2 PlayerPosition;
         public EntityCommandBuffer.ParallelWriter ECB;
 
-        private void Execute(WeaponSpawnAspect weaponSpawnAspect, [ChunkIndexInQuery] int sortKey)
+        private void Execute(WeaponSpawnerAspect weaponSpawnerAspect, [ChunkIndexInQuery] int sortKey)
         {
-            weaponSpawnAspect.Tick(DeltaTime);
-            if (weaponSpawnAspect.CanFire())
+            weaponSpawnerAspect.Tick(DeltaTime);
+            if (weaponSpawnerAspect.CanFire())
             {
-                weaponSpawnAspect.Fire(PlayerEntity, PlayerPosition,PlayerDirection,ECB,sortKey);
+                weaponSpawnerAspect.Fire(PlayerPosition,PlayerDirection,ECB,sortKey);
             }
         }
     }

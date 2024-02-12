@@ -6,7 +6,7 @@ using Unity.Transforms;
 
 namespace EcsDotsScripts.Aspects
 {
-    public readonly partial struct WeaponSpawnAspect : IAspect
+    public readonly partial struct WeaponSpawnerAspect : IAspect
     {
         private readonly RefRW<WeaponSpawnData> weaponSpawnData;
         
@@ -20,10 +20,9 @@ namespace EcsDotsScripts.Aspects
             return weaponSpawnData.ValueRW.PassedTime >= weaponSpawnData.ValueRW.Cooldown;
         }
 
-        public void Fire(Entity owner, float2 spawnPosition, float2 movementDirection, EntityCommandBuffer.ParallelWriter ecb,
+        public void Fire(float2 spawnPosition, float2 movementDirection, EntityCommandBuffer.ParallelWriter ecb,
             int sortKey)
         {
-            weaponSpawnData.ValueRW.PassedTime = 0;
             for (int i = 0; i < weaponSpawnData.ValueRW.ProjectileCount; i++)
             {
                 var projectile = ecb.Instantiate(sortKey, weaponSpawnData.ValueRO.ProjectilePrefab);
@@ -34,7 +33,7 @@ namespace EcsDotsScripts.Aspects
                         moveDirection = movementDirection;
                         break;
                     case (int)AttackDirection.Random:
-                        moveDirection = Random.CreateFromIndex((uint)sortKey).NextFloat2Direction();
+                        moveDirection = Random.CreateFromIndex((uint)((i+weaponSpawnData.ValueRW.PassedTime)*10000)).NextFloat2Direction();
                         break;
                 }
                 var direction = math.atan2(moveDirection.y, moveDirection.x);
@@ -55,6 +54,8 @@ namespace EcsDotsScripts.Aspects
                     Damage = weaponSpawnData.ValueRW.Damage
                 });
             }
+            weaponSpawnData.ValueRW.PassedTime = 0;
+
         }
     }
 }
