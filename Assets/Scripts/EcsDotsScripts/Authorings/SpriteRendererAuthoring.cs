@@ -6,8 +6,8 @@ namespace RoguelikeDots.Authorings
 {
     public class SpriteRendererAuthoring : MonoBehaviour
     {
-        [SerializeField] private int frameCount;
-        [SerializeField] private float frameTimerMax;
+        [SerializeField] private int frameCount = 4;
+        [SerializeField] private float frameTimerMax = 0.1f;
         private class SpriteRendererAuthoringBaker : Baker<SpriteRendererAuthoring>
         {
             public override void Bake(SpriteRendererAuthoring authoring)

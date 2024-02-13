@@ -296,6 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QuadMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
   Material: {fileID: 2100000, guid: 907d49b4c245cb545ba8f1385fa5ff5b, type: 2}
+  BulletMaterial: {fileID: 0}
 --- !u!4 &324908081
 Transform:
   m_ObjectHideFlags: 0
@@ -570,7 +571,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 100
   field of view: 34
   orthographic: 1
   orthographic size: 25
@@ -616,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba11ab6acef8fa644aa006733a0ba4f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: -1}
+  offset: {x: 0, y: 0, z: -25}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

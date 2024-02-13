@@ -1,14 +1,11 @@
-﻿using RoguelikeDots.Components;
+﻿using EcsDotsScripts.Aspects;
 using Unity.Burst;
 using Unity.Entities;
-using Unity.Transforms;
-using UnityEngine;
 
 namespace RoguelikeDots.Systems
 {
     [UpdateInGroup(typeof(SimulationSystemGroup))]
-    [UpdateAfter(typeof(TransformSystemGroup))]
-    [UpdateBefore(typeof(SpriteDrawSystem))]
+    [UpdateAfter(typeof(MovementSystem))]
     
     [BurstCompile]
     public partial struct SpriteAnimationSystem : ISystem
@@ -30,18 +27,9 @@ namespace RoguelikeDots.Systems
     public partial struct SpriteAnimationJob : IJobEntity
     {
         public float DeltaTime;
-        private void Execute(ref SpriteAnimationData spriteAnimationData)
+        private void Execute(SpriteRendererAspect spriteRendererAspect)
         {
-            spriteAnimationData.FrameTimer += DeltaTime;
-            if (spriteAnimationData.FrameTimer >= spriteAnimationData.FrameTimerMax)
-            {
-                spriteAnimationData.FrameTimer = 0;
-                spriteAnimationData.CurrentFrame++;
-                if (spriteAnimationData.CurrentFrame >= spriteAnimationData.FrameCount)
-                {
-                    spriteAnimationData.CurrentFrame = 0;
-                }
-            }
+            spriteRendererAspect.Animate(DeltaTime);
         }
     }
 }

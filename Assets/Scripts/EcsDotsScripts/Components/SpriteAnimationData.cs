@@ -1,4 +1,6 @@
 ﻿using Unity.Entities;
+using Unity.Mathematics;
+using UnityEngine;
 
 namespace RoguelikeDots.Components
 {
@@ -8,5 +10,7 @@ namespace RoguelikeDots.Components
         public int FrameCount;
         public float FrameTimer;
         public float FrameTimerMax;
+        public float4 UV;
+        public Matrix4x4 Matrix;
     }
 }
