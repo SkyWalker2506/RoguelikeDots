@@ -34,7 +34,7 @@ namespace EcsDotsScripts.Aspects
             
             float3 position = LocalTransform.ValueRO.Position;
             position.z = position.y * 0.1f;
-            spriteAnimationData.Matrix = Matrix4x4.TRS(position, Quaternion.identity, LocalTransform.ValueRO.Scale*Vector3.one);
+            spriteAnimationData.Matrix = Matrix4x4.TRS(position, LocalTransform.ValueRO.Rotation, LocalTransform.ValueRO.Scale*Vector3.one);
             SpriteAnimationData.ValueRW = spriteAnimationData;
         }
     }

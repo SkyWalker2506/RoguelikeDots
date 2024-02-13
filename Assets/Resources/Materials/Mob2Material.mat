@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WalkingSpriteSheet
+  m_Name: Mob2Material
   m_Shader: {fileID: 4800000, guid: 0ed81ae0394d38648af7d38739801948, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: de475014783b7fc439c546e86b28d1f4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4a269f5bbce25db448d6574811e9b668, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

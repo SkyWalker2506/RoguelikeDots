@@ -6,6 +6,7 @@ namespace RoguelikeDots.Authorings
 {
     public class SpriteRendererAuthoring : MonoBehaviour
     {
+        [SerializeField] private Material material;
         [SerializeField] private int frameCount = 4;
         [SerializeField] private float frameTimerMax = 0.1f;
         private class SpriteRendererAuthoringBaker : Baker<SpriteRendererAuthoring>
@@ -15,9 +16,11 @@ namespace RoguelikeDots.Authorings
                 var entity = GetEntity(TransformUsageFlags.Dynamic);
                 AddComponent(entity, new SpriteAnimationData
                 {
+                    MaterialId = authoring.material.GetInstanceID(),
                     FrameCount = authoring.frameCount,
                     FrameTimerMax = authoring.frameTimerMax,
                 } );
+                AddSharedComponent(entity, new MaterialData {MaterialId = authoring.material.GetInstanceID()} );
             }
         }
 

@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 324908081}
   - component: {fileID: 324908080}
   m_Layer: 0
-  m_Name: SpriteAnimationManager
+  m_Name: MaterialManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,8 +295,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   QuadMesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
-  Material: {fileID: 2100000, guid: 907d49b4c245cb545ba8f1385fa5ff5b, type: 2}
-  BulletMaterial: {fileID: 0}
+  Material: {fileID: 2100000, guid: 2673b267f4fbd61418bb6e3b2723309f, type: 2}
+  materials:
+  - {fileID: 2100000, guid: 2673b267f4fbd61418bb6e3b2723309f, type: 2}
+  - {fileID: 2100000, guid: 800c48060bc1b9844b16c3becfd1f06e, type: 2}
+  - {fileID: 2100000, guid: d81e544ec39cd5240841ee1fb54ea700, type: 2}
 --- !u!4 &324908081
 Transform:
   m_ObjectHideFlags: 0

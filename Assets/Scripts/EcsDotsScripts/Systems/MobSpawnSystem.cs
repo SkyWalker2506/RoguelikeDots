@@ -41,10 +41,10 @@ namespace RoguelikeDots.Systems
         public EntityCommandBuffer.ParallelWriter ECB;
         public float2 Center;
             
-        private void Execute(Entity entity, DynamicBuffer<MobBufferElementData> mobBuffer, [ChunkIndexInQuery] int sortKey)
+        private void Execute(Entity entity, DynamicBuffer<MobBufferElementData> mobBuffer, MobSpawnerSharedData sharedData, [ChunkIndexInQuery] int sortKey)
         {
-            float minDistance = 40;
-            float maxDistance = 100;
+            float minDistance = sharedData.MinDistance;
+            float maxDistance = sharedData.MaxDistance;
                 
             for (int i = 0; i < mobBuffer.Length; i++)
             {

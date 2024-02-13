@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5069453780509637770, guid: f930827307c9ac04080b02b7eb1a06f1, type: 3}
+      propertyPath: material
+      value: 
+      objectReference: {fileID: 2100000, guid: d81e544ec39cd5240841ee1fb54ea700, type: 2}
+    - target: {fileID: 5069453780509637770, guid: f930827307c9ac04080b02b7eb1a06f1, type: 3}
+      propertyPath: frameCount
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 6250602059238676594, guid: f930827307c9ac04080b02b7eb1a06f1, type: 3}
       propertyPath: m_Name
       value: Mob2

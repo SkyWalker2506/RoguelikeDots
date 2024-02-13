@@ -250,6 +250,18 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1955105120544640021, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955105120544640021, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955105120544640021, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955105120544640021, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -288,6 +300,10 @@ PrefabInstance:
     - target: {fileID: 1955105120544640021, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1955105120544640021, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3831115592185657848, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
       propertyPath: moveSpeed

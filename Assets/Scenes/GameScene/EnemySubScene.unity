@@ -131,6 +131,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 135097335573861688, guid: 751cca5a9a9f9924ebe25d1939102b08, type: 3}
+      propertyPath: maxDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 135097335573861688, guid: 751cca5a9a9f9924ebe25d1939102b08, type: 3}
+      propertyPath: minDistance
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 135097335573861688, guid: 751cca5a9a9f9924ebe25d1939102b08, type: 3}
+      propertyPath: MobList.Array.data[0].MobCount
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 135097335573861688, guid: 751cca5a9a9f9924ebe25d1939102b08, type: 3}
+      propertyPath: MobList.Array.data[1].MobCount
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 729500372566515396, guid: 751cca5a9a9f9924ebe25d1939102b08, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

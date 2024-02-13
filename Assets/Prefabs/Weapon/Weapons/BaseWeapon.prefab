@@ -58,5 +58,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb93ea95fa8141ed9628a4765fcb8801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frameCount: 4
+  material: {fileID: 2100000, guid: 2673b267f4fbd61418bb6e3b2723309f, type: 2}
+  frameCount: 5
   frameTimerMax: 0.1

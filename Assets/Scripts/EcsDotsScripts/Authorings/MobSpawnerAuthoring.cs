@@ -7,7 +7,9 @@ namespace RoguelikeDots.Authorings
 {
     public class MobSpawnerAuthoring : MonoBehaviour
     {
-        public MobListData[] MobList;
+        [SerializeField] [Min(10)]private float minDistance=25;
+        [SerializeField] [Range(10,100)]private int maxDistance=100;
+        [SerializeField] private MobListData[] MobList;
         private class MobSpawnerAuthoringBaker : Baker<MobSpawnerAuthoring>
         {
             public override void Bake(MobSpawnerAuthoring authoring)
@@ -25,6 +27,11 @@ namespace RoguelikeDots.Authorings
                         }
                     });
                 }
+                AddSharedComponent(entity, new MobSpawnerSharedData
+                {
+                    MinDistance = authoring.minDistance,
+                    MaxDistance = authoring.maxDistance
+                });
             }
         }
         
