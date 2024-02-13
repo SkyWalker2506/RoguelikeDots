@@ -250,18 +250,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1955105120544640021, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1955105120544640021, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1955105120544640021, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1955105120544640021, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -301,13 +289,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1955105120544640021, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
-      propertyPath: m_ConstrainProportionsScale
+    - target: {fileID: 6105466061024451261, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
+      propertyPath: m_SphereRadius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105466061024451261, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
+      propertyPath: m_Capsule.Height
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3831115592185657848, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
-      propertyPath: moveSpeed
-      value: 5
+    - target: {fileID: 6105466061024451261, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
+      propertyPath: m_Capsule.Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105466061024451261, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
+      propertyPath: m_Cylinder.Height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105466061024451261, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
+      propertyPath: m_Cylinder.Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105466061024451261, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
+      propertyPath: m_PrimitiveSize.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105466061024451261, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
+      propertyPath: m_PrimitiveSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105466061024451261, guid: 90b51e15d9ffff84b9815491d22b3bef, type: 3}
+      propertyPath: m_PrimitiveSize.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

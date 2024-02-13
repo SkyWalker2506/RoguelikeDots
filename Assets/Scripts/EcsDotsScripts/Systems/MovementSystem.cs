@@ -2,6 +2,7 @@
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Mathematics;
+using Unity.Physics;
 using Unity.Transforms;
 
 namespace RoguelikeDots.Systems
@@ -16,7 +17,7 @@ namespace RoguelikeDots.Systems
         {
             float time = SystemAPI.Time.DeltaTime;
 
-            new MovementJob
+            new PhysicsMovementJob
             {
                 DeltaTime = time
             }.ScheduleParallel();
@@ -33,6 +34,23 @@ namespace RoguelikeDots.Systems
             if(movementData.MoveDirection.Equals(float2.zero)) return;
             float3 direction = math.normalize(new float3(movementData.MoveDirection, 0));
             localTransform.Position += direction * movementData.MoveSpeed * DeltaTime;
+        }
+    }
+    
+    [BurstCompile]
+    public partial struct PhysicsMovementJob : IJobEntity
+    {
+        public float DeltaTime;
+
+        private void Execute(ref PhysicsVelocity velocity, ref MovementData movementData)
+        {
+            if (movementData.MoveDirection.Equals(float2.zero))
+            {
+                velocity.Linear = float3.zero;
+                return;
+            }
+            float3 direction = math.normalize(new float3(movementData.MoveDirection, 0));
+            velocity.Linear = direction * movementData.MoveSpeed;
         }
     }
 }

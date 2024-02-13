@@ -27,7 +27,7 @@ namespace RoguelikeDots.Systems
             int shaderPropertyId = Shader.PropertyToID("_MainTex_UV");
             Vector4[] uv = new Vector4[1];
             Camera camera = Camera.main;
-            Entities.ForEach(( SpriteAnimationData SpriteAnimationData) =>
+            Entities.ForEach(( in SpriteAnimationData SpriteAnimationData) =>
             {
                 uv[0]= SpriteAnimationData.UV;
                 propertyBlock.SetVectorArray(shaderPropertyId, uv);
