@@ -1,4 +1,5 @@
 ﻿using System;
+using RoguelikeDots.Components;
 using Unity.Entities;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ namespace RoguelikeDots.Authorings
             public override void Bake(PlayerWeaponSpawnAuthoring spawnAuthoring)
             {
                 var entity = GetEntity(TransformUsageFlags.None);
-                AddComponent(entity, new Components.WeaponSpawnData
+                AddComponent(entity, new WeaponSpawnData
                 {
                     ProjectilePrefab =  GetEntity(spawnAuthoring.projectilePrefab, TransformUsageFlags.Dynamic),
                     ProjectileCount = spawnAuthoring.projectileCount,
