@@ -3,6 +3,7 @@ using RoguelikeDots.Components;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
+using Unity.Transforms;
 using UnityEngine;
 
 namespace RoguelikeDots.Systems
@@ -13,12 +14,12 @@ namespace RoguelikeDots.Systems
     [BurstCompile]
     public partial class DrawMeshInstanceSystem : SystemBase
     {
-        EntityQuery materialQuery;
+        EntityQuery entityQuery;
 
 
         protected override void OnStartRunning()
         {
-            materialQuery = SystemAPI.QueryBuilder().WithAll<SpriteAnimationData>().WithAll<MaterialData>().Build();
+            entityQuery = SystemAPI.QueryBuilder().WithAll<SpriteAnimationData>().WithAll<MaterialData>().WithAll<LocalTransform>().Build();
         }
 
         [BurstCompile]
@@ -27,8 +28,10 @@ namespace RoguelikeDots.Systems
             for (var index = 0; index < MaterialManager.Instance.MaterialCount; index++)
             {
                 var instanceID = MaterialManager.Instance.GetInstanceID(index);
-                materialQuery.SetSharedComponentFilter(new MaterialData {MaterialId = instanceID});
-                NativeArray<SpriteAnimationData> animationDataArray = materialQuery.ToComponentDataArray<SpriteAnimationData>(Allocator.TempJob);
+                entityQuery.SetSharedComponentFilter(new MaterialData {MaterialId = instanceID});
+                NativeArray<SpriteAnimationData> animationDataArray = entityQuery.ToComponentDataArray<SpriteAnimationData>(Allocator.TempJob);
+                NativeArray<LocalTransform> transformArray = entityQuery.ToComponentDataArray<LocalTransform>(Allocator.TempJob);
+                
                 DrawMeshInstance(animationDataArray);
             }
         }
