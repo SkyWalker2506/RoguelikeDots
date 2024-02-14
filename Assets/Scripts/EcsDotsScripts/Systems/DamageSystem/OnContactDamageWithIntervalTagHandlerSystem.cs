@@ -10,7 +10,7 @@ namespace RoguelikeDots.Systems
     [BurstCompile]
     public partial struct OnContactDamageWithIntervalTagHandlerSystem : ISystem
     {
-            [BurstCompile]
+        [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<BeginFixedStepSimulationEntityCommandBufferSystem.Singleton>();
@@ -49,7 +49,6 @@ namespace RoguelikeDots.Systems
         
         private void Execute(Entity entity, ref ContactData contactData, DamageDealerData damageDealer,ref DamageOnContactWithIntervalData damageOnContactWithIntervalData, [ChunkIndexInQuery] int sortKey)
         {
-            
             if (damageOnContactWithIntervalData.AvailableToDamage)
             {
                 damageOnContactWithIntervalData.PassedTime = 0;
