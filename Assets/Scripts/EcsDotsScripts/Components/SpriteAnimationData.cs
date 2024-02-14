@@ -13,6 +13,7 @@ namespace RoguelikeDots.Components
         public float FrameTimerMax;
         public float4 UV;
         public Matrix4x4 Matrix;
+        public bool Loop;
     }
     
     public struct MaterialData : ISharedComponentData
