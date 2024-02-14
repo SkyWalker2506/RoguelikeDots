@@ -16,8 +16,8 @@ namespace EcsDotsScripts.Aspects
         {
             int width = mapSpawnerData.ValueRO.GridWidth;
             int height = mapSpawnerData.ValueRO.GridHeight;
-            float2 mapSize = mapSpawnerData.ValueRO.MapSize;
-            float2 gridSize = mapSpawnerData.ValueRO.MapSize;
+            float2 mapSize = mapSpawnerData.ValueRO.GridBound;
+            float2 gridSize = mapSpawnerData.ValueRO.GridBound;
             float2 center = new float2((int)(playerPosition.x / gridSize.x) * gridSize.x,
                 (int)(playerPosition.y / gridSize.y) * gridSize.y);
             int initialWidth = -((width - 1) / 2);
@@ -31,8 +31,9 @@ namespace EcsDotsScripts.Aspects
                 ECB.SetComponent(sortKey, gridBufferElementData[i].Entity, new LocalTransform
                 {
                     Position = new float3(mapSize.x * (initialWidth + widthIndex) + center.x,
-                        mapSize.y * (initialHeight + heightIndex) + center.y, 0),
-                    Scale = 1
+                        mapSize.y * (initialHeight + heightIndex) + center.y, -1),
+                    Rotation = quaternion.identity,
+                    Scale = mapSpawnerData.ValueRO.GridBound.x
                 });
             }
         }

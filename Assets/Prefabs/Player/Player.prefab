@@ -63,7 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 62ed27c41cf47db4691ffac415f497a4, type: 2}
   frameCount: 1
-  frameTimerMax: 0.1
+  frameTimerMax: 1000
 --- !u!114 &7517360037454699668
 MonoBehaviour:
   m_ObjectHideFlags: 0

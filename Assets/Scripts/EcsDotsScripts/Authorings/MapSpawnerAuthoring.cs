@@ -1,5 +1,6 @@
 ﻿using RoguelikeDots.Components;
 using Unity.Entities;
+using Unity.Transforms;
 using UnityEngine;
 
 namespace RoguelikeDots.Authoring
@@ -23,9 +24,10 @@ namespace RoguelikeDots.Authoring
                     GridPrefab =  GetEntity(authoring.gridPrefab,TransformUsageFlags.Dynamic),
                     GridWidth = authoring.gridWidth,
                     GridHeight = authoring.gridHeight,
-                    MapSize = authoring.mapSize,
+                    GridBound = authoring.mapSize,
                     MaxSpawnCount = authoring.MaxSpawnCount 
                 }); 
+                
             }
         }
     }

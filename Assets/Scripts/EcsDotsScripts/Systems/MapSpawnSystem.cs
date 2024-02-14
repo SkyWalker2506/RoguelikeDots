@@ -3,6 +3,7 @@ using RoguelikeDots.Components;
 using Unity.Burst;
 using Unity.Entities;
 using Unity.Scenes;
+using Unity.Transforms;
 
 
 namespace RoguelikeDots.Systems
@@ -45,7 +46,7 @@ namespace RoguelikeDots.Systems
                 for (int i = 0; i < mapSpawnerData.MaxSpawnCount; i++)
                 {
                     var gridEntity = ECB.Instantiate(sortKey, mapSpawnerData.GridPrefab);
-
+       
                     buffer.Add(new GridBufferElementData
                     {
                         Entity = gridEntity

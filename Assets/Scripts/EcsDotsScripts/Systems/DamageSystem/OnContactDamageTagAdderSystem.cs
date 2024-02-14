@@ -41,7 +41,6 @@ namespace RoguelikeDots.Systems
             {
                 Damage = damageDealer.Damage
             });
-            Debug.Log( contactData.ContactEntity + " has been damaged by " + entity + " for " + damageDealer.Damage + " damage");
         }
     }
 }
