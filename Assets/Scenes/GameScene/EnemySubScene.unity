@@ -137,7 +137,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 135097335573861688, guid: 751cca5a9a9f9924ebe25d1939102b08, type: 3}
       propertyPath: minDistance
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 135097335573861688, guid: 751cca5a9a9f9924ebe25d1939102b08, type: 3}
       propertyPath: MobList.Array.data[0].MobCount

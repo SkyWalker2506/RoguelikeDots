@@ -11,7 +11,7 @@ namespace RoguelikeDots.Authoring
             public override void Bake(DamageOnContactAuthoring authoring)
             {
                 var entity = GetEntity(TransformUsageFlags.None);
-                AddComponent(entity, new DamageOnContactTag());
+                AddComponent(entity, new DamageOnContactOnceTag());
             }
         }
     }

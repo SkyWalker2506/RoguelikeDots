@@ -1,7 +1,7 @@
-﻿using RoguelikeDots.Components;
+﻿
+using RoguelikeDots.Components;
 using Unity.Burst;
 using Unity.Entities;
-using UnityEngine;
 
 namespace RoguelikeDots.Systems
 {
@@ -9,7 +9,7 @@ namespace RoguelikeDots.Systems
     [UpdateAfter(typeof(ContactSystem))]
     [UpdateBefore(typeof(DeathOnContactSystem))]
     [BurstCompile]
-    public partial struct OnContactDamageTagAdderSystem : ISystem
+    public partial struct OnContactDamageTagHandlerSystem : ISystem
     {
         [BurstCompile]
         public void OnCreate(ref SystemState state)
@@ -34,13 +34,14 @@ namespace RoguelikeDots.Systems
     {
         public EntityCommandBuffer.ParallelWriter ECB;
         
-        private void Execute(Entity entity, ref ContactData contactData, DamageDealerData damageDealer,in DamageOnContactTag _, [ChunkIndexInQuery] int sortKey)
+        private void Execute(Entity entity, ref ContactData contactData, DamageDealerData damageDealer,in DamageOnContactOnceTag _, [ChunkIndexInQuery] int sortKey)
         {
-            ECB.RemoveComponent<DamageOnContactTag>(sortKey, entity);
+            ECB.RemoveComponent<DamageOnContactOnceTag>(sortKey, entity);
             ECB.AddComponent(sortKey, contactData.ContactEntity, new DamageData
             {
                 Damage = damageDealer.Damage
             });
         }
     }
+    
 }

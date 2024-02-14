@@ -7,7 +7,7 @@ namespace EcsDotsScripts.Aspects
 {
     public readonly partial struct MobAspect : IAspect
     {
-        private readonly RefRO<MobData> mobData;
+        private readonly RefRO<MobTag> mobData;
         private readonly RefRW<MovementData> movementData;
         private readonly RefRO<LocalTransform> transformData;
         
