@@ -33,7 +33,7 @@ namespace EcsDotsScripts.Aspects
                     Position = new float3(mapSize.x * (initialWidth + widthIndex) + center.x,
                         mapSize.y * (initialHeight + heightIndex) + center.y, -1),
                     Rotation = quaternion.identity,
-                    Scale = mapSpawnerData.ValueRO.GridBound.x
+                    Scale = mapSpawnerData.ValueRO.Scale
                 });
             }
         }

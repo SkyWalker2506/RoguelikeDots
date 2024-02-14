@@ -11,6 +11,7 @@ namespace RoguelikeDots.Authoring
         [SerializeField] private int gridWidth = 3;
         [SerializeField] private int gridHeight = 3;
         [SerializeField] private Vector2 mapSize = new Vector2(20.4f,20.4f);
+        [SerializeField] private float Scale = 1; 
         private int MaxSpawnCount => gridWidth * gridHeight;
         
         private class MapSpawnerAuthoringBaker : Baker<MapSpawnerAuthoring>
@@ -25,6 +26,7 @@ namespace RoguelikeDots.Authoring
                     GridWidth = authoring.gridWidth,
                     GridHeight = authoring.gridHeight,
                     GridBound = authoring.mapSize,
+                    Scale = authoring.Scale,
                     MaxSpawnCount = authoring.MaxSpawnCount 
                 }); 
                 

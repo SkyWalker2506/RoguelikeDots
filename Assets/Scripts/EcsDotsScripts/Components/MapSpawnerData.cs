@@ -1,5 +1,6 @@
 ﻿using Unity.Entities;
 using Unity.Mathematics;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace RoguelikeDots.Components
@@ -12,5 +13,6 @@ namespace RoguelikeDots.Components
         public float2 GridBound;
         public int MaxSpawnCount;
         public bool IsInitialized;
+        public float Scale;
     }
 }
