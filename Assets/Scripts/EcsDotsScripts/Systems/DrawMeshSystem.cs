@@ -2,13 +2,11 @@
 using RoguelikeDots.Components;
 using Unity.Burst;
 using Unity.Entities;
-using Unity.Transforms;
 using UnityEngine;
 namespace RoguelikeDots.Systems
 {
     [DisableAutoCreation]
-    [UpdateInGroup(typeof(SimulationSystemGroup))]
-    [UpdateAfter(typeof(TransformSystemGroup))]
+    [UpdateInGroup(typeof(LateSimulationSystemGroup))]
     [UpdateAfter(typeof(SpriteAnimationSystem))]
     [BurstCompile]
     public partial class DrawMeshSystem : SystemBase

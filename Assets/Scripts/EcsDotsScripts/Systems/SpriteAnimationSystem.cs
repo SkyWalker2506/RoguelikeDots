@@ -4,8 +4,7 @@ using Unity.Entities;
 
 namespace RoguelikeDots.Systems
 {
-    [UpdateInGroup(typeof(SimulationSystemGroup))]
-    [UpdateAfter(typeof(MovementSystem))]
+    [UpdateInGroup(typeof(LateSimulationSystemGroup))]
     
     [BurstCompile]
     public partial struct SpriteAnimationSystem : ISystem

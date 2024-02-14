@@ -1,4 +1,4 @@
-﻿using RoguelikeDots.Authorings;
+﻿using RoguelikeDots.Authoring;
 using RoguelikeDots.Components;
 using Unity.Entities;
 using Unity.Mathematics;

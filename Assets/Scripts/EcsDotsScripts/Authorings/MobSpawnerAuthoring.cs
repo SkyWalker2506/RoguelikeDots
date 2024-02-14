@@ -3,7 +3,7 @@ using RoguelikeDots.Components;
 using Unity.Entities;
 using UnityEngine;
 
-namespace RoguelikeDots.Authorings
+namespace RoguelikeDots.Authoring
 {
     public class MobSpawnerAuthoring : MonoBehaviour
     {

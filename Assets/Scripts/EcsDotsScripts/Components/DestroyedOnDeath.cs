@@ -2,8 +2,8 @@
 
 namespace RoguelikeDots.Components
 {
-    public struct DamageData : IComponentData
+    public struct DestroyedOnDeathTag : IComponentData
     {
-        public float Damage;
+        
     }
 }

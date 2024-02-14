@@ -2,7 +2,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace RoguelikeDots.Authorings
+namespace RoguelikeDots.Authoring
 {
     public class DestroyWithTimeAuthoring : MonoBehaviour
     {

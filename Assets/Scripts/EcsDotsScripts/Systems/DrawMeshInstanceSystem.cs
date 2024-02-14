@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace RoguelikeDots.Systems
 {
-    [UpdateInGroup(typeof(SimulationSystemGroup))]
+    [UpdateInGroup(typeof(LateSimulationSystemGroup))]
     [UpdateAfter(typeof(SpriteAnimationSystem))]
     [RequireMatchingQueriesForUpdate]
     [BurstCompile]

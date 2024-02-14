@@ -2,7 +2,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace RoguelikeDots.Authorings
+namespace RoguelikeDots.Authoring
 {
     public class MobAuthoring : MonoBehaviour
     {
@@ -27,6 +27,11 @@ namespace RoguelikeDots.Authorings
                 AddComponent(entity,new MovementData()
                 {
                     MoveSpeed = authoring.moveSpeed
+                });
+                AddComponent(entity,new HealthData()
+                {
+                    CurrentHealth = authoring.health,
+                    MaxHealth = authoring.health
                 });
             }
         }

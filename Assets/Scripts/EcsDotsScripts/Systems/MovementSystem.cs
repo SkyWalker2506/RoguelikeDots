@@ -7,8 +7,7 @@ using Unity.Transforms;
 
 namespace RoguelikeDots.Systems
 {
-    [UpdateInGroup(typeof(SimulationSystemGroup))]
-    [UpdateBefore(typeof(TransformSystemGroup))]
+    [UpdateInGroup(typeof(FixedStepSimulationSystemGroup), OrderFirst = true)]
     [BurstCompile]
     public partial struct MovementSystem :ISystem
     {

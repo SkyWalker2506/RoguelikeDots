@@ -3,7 +3,7 @@ using Unity.Entities;
 using Unity.Mathematics;
 using UnityEngine;
 
-namespace RoguelikeDots.Authorings
+namespace RoguelikeDots.Authoring
 {
     public class PlayerAuthoring : MonoBehaviour
     {
