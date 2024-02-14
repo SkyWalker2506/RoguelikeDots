@@ -10,7 +10,7 @@ namespace RoguelikeDots.Systems
 {
     [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
     [BurstCompile]
-    public partial struct AreaDamageSystem : ISystem
+    public partial struct AreaDamageTagAdderSystem : ISystem
     {
         [BurstCompile]
         public void OnCreate(ref SystemState state)
@@ -26,7 +26,7 @@ namespace RoguelikeDots.Systems
             var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter();
             var deltaTime = SystemAPI.Time.DeltaTime;
             var physicsWorld = SystemAPI.GetSingleton<PhysicsWorldSingleton>();
-            new AreaDamageSetterJob
+            new AreaDamageTagAdderJob
             {
                 ECB = ecb,
                 DeltaTime = deltaTime,
@@ -37,7 +37,7 @@ namespace RoguelikeDots.Systems
     }
     
     [BurstCompile]
-    public partial struct AreaDamageSetterJob : IJobEntity
+    public partial struct AreaDamageTagAdderJob : IJobEntity
     {
         [ReadOnly] public PhysicsWorldSingleton PhysicsWorld;
         public EntityCommandBuffer.ParallelWriter ECB;

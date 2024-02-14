@@ -5,6 +5,7 @@ using Unity.Entities;
 namespace RoguelikeDots.Systems
 {
     [UpdateInGroup(typeof(SimulationSystemGroup), OrderLast = true)]
+    [BurstCompile]
     public partial struct DestroyWithTimeSystem : ISystem
     {
         [BurstCompile]
@@ -17,12 +18,11 @@ namespace RoguelikeDots.Systems
         public void OnUpdate(ref SystemState state)
         {
             var ecbSingleton = SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>();
-            var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter();
             var deltaTime = SystemAPI.Time.DeltaTime;
             
             new DestroyWithTimeJob
             {
-                ECB = ecb,
+                ECB = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter(),
                 DeltaTime = deltaTime
             }.ScheduleParallel();
         }

@@ -35,9 +35,10 @@ namespace RoguelikeDots.Systems
     {
         public EntityCommandBuffer.ParallelWriter ECB;
         
-        private void Execute(Entity entity, ref ContactData contactData, DeathOnContactTag deathOnContact, [ChunkIndexInQuery] int sortKey)
+        private void Execute(Entity entity, ref ContactData contactData, in DeathOnContactTag deathOnContact, [ChunkIndexInQuery] int sortKey)
         {
-            ECB.DestroyEntity(sortKey, entity);
+            ECB.RemoveComponent<DeathOnContactTag>(sortKey, entity);
+            ECB.AddComponent<DeathTag>(sortKey, entity);
         }
     }
 }

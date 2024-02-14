@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1749119542816406862}
   - component: {fileID: 2149197038066966274}
   - component: {fileID: 98346855818492837}
+  - component: {fileID: 3887134471706927651}
   - component: {fileID: 3203968106887506510}
   m_Layer: 0
   m_Name: ProjectileBase
@@ -258,6 +259,18 @@ MonoBehaviour:
         Tag07: 0
     m_SerializedVersion: 1
   m_SerializedVersion: 1
+--- !u!114 &3887134471706927651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4095962213891284718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d753ad09cf9648299f8300fab3093c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3203968106887506510
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 2
-  damage: 5
+  damage: 15
   damageToTags:
     Category00: 0
     Category01: 1
