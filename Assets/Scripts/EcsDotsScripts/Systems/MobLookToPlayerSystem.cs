@@ -9,7 +9,7 @@ namespace RoguelikeDots.Systems
 {
     [UpdateInGroup(typeof(SimulationSystemGroup))]
     [UpdateBefore(typeof(TransformSystemGroup))]
-    public partial struct MobPlayerFollow : ISystem
+    public partial struct MobLookToPlayerSystem : ISystem
     {
         public void OnCreate(ref SystemState state)
         {
@@ -21,7 +21,7 @@ namespace RoguelikeDots.Systems
         public void OnUpdate(ref SystemState state)
         {
             var playerEntity = SystemAPI.GetSingletonEntity<PlayerTag>();
-            new MobPlayerFollowJob
+            new MobLookToPlayerJob
             {
                 PlayerPosition = SystemAPI.GetComponent<LocalTransform>(playerEntity).Position.xy
             }.ScheduleParallel();
@@ -30,7 +30,7 @@ namespace RoguelikeDots.Systems
     }
     
     [BurstCompile]
-    public partial struct MobPlayerFollowJob : IJobEntity
+    public partial struct MobLookToPlayerJob : IJobEntity
     {
         public float2 PlayerPosition;
             

@@ -18,10 +18,10 @@ namespace RoguelikeDots.Systems
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            var ecb = SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>();
+            var ecbSingleton = SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>();
             new SetDeathJob
             {
-                ECB = ecb.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter()
+                ECB = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter()
             }.ScheduleParallel();
         }
     }

@@ -21,11 +21,11 @@ namespace RoguelikeDots.Systems
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            var entityCommandBuffer = SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>();
+            var ecbSingleton = SystemAPI.GetSingleton<BeginInitializationEntityCommandBufferSystem.Singleton>();
 
             new GridSpawnJob
             {
-                ECB = entityCommandBuffer.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter()
+                ECB = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter()
                 
             }.ScheduleParallel();
         }

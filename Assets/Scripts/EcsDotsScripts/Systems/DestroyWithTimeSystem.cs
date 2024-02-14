@@ -7,6 +7,7 @@ namespace RoguelikeDots.Systems
     [UpdateInGroup(typeof(SimulationSystemGroup), OrderLast = true)]
     public partial struct DestroyWithTimeSystem : ISystem
     {
+        [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
             state.RequireForUpdate<EndSimulationEntityCommandBufferSystem.Singleton>();
@@ -15,8 +16,8 @@ namespace RoguelikeDots.Systems
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            var entityCommandBuffer = SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>();
-            var ecb = entityCommandBuffer.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter();
+            var ecbSingleton = SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>();
+            var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter();
             var deltaTime = SystemAPI.Time.DeltaTime;
             
             new DestroyWithTimeJob

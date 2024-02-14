@@ -27,14 +27,14 @@ namespace RoguelikeDots.Systems
         {
             passedTime += SystemAPI.Time.DeltaTime;
             if(checkInterval > passedTime) return;
-            var entityCommandBuffer = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
+            var ecbSingleton = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
 
             var playerEntity = SystemAPI.GetSingletonEntity<PlayerTag>();
             if (playerEntity != Entity.Null)
             {
                 new GridPlacementJob
                 {
-                    ECB = entityCommandBuffer.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter(),
+                    ECB = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter(),
                     PlayerPosition = SystemAPI.GetComponent<LocalTransform>(SystemAPI.GetSingletonEntity<PlayerTag>()).Position
                 }.ScheduleParallel();
             }

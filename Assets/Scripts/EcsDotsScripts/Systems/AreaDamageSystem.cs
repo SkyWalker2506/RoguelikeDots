@@ -9,22 +9,21 @@ using Unity.Transforms;
 namespace RoguelikeDots.Systems
 {
     [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
-    [UpdateAfter(typeof(MovementSystem))]
     [BurstCompile]
     public partial struct AreaDamageSystem : ISystem
     {
         [BurstCompile]
         public void OnCreate(ref SystemState state)
         {
-            state.RequireForUpdate<EndSimulationEntityCommandBufferSystem.Singleton>();
+            state.RequireForUpdate<BeginFixedStepSimulationEntityCommandBufferSystem.Singleton>();
             state.RequireForUpdate<PhysicsWorldSingleton>();
         }
 
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            var entityCommandBuffer = SystemAPI.GetSingleton<EndSimulationEntityCommandBufferSystem.Singleton>();
-            var ecb = entityCommandBuffer.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter();
+            var ecbSingleton = SystemAPI.GetSingleton<BeginFixedStepSimulationEntityCommandBufferSystem.Singleton>();
+            var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter();
             var deltaTime = SystemAPI.Time.DeltaTime;
             var physicsWorld = SystemAPI.GetSingleton<PhysicsWorldSingleton>();
             new AreaDamageSetterJob

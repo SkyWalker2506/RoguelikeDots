@@ -49,7 +49,7 @@ namespace EcsDotsScripts.Aspects
                     MoveDirection = moveDirection,
                     MoveSpeed = weaponSpawnData.ValueRO.ProjectileSpeed
                 });
-                ecb.AddComponent(sortKey, projectile, new DamageData()
+                ecb.AddComponent(sortKey, projectile, new DamageDealerData()
                 {
                     Damage = weaponSpawnData.ValueRW.Damage
                 });

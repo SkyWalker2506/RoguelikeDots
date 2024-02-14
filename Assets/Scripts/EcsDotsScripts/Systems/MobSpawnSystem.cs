@@ -21,11 +21,11 @@ namespace RoguelikeDots.Systems
         public void OnUpdate(ref SystemState state)
         {
             if(IsSpawned) return;
-            var ECB = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
+            var ecbSingleton = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
             var playerEntity = SystemAPI.GetSingletonEntity<PlayerTag>();
             new MobSpawnJob
             {
-                ECB = ECB.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter(),
+                ECB = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter(),
                 Center = SystemAPI.GetComponent<LocalTransform>(playerEntity).Position.xy
             }.ScheduleParallel();
             IsSpawned = true;

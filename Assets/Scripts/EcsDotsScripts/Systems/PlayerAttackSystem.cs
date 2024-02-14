@@ -23,14 +23,14 @@ namespace RoguelikeDots.Systems
         [BurstCompile]
         public void OnUpdate(ref SystemState state)
         {
-            var ECB = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
+            var ecbSingleton = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
             var playerEntity = SystemAPI.GetSingletonEntity<PlayerTag>();
             new PlayerAttackJob
             {
                 DeltaTime = SystemAPI.Time.DeltaTime,
                 PlayerDirection = SystemAPI.GetComponent<LookData>(playerEntity).LookDirection,
                 PlayerPosition = SystemAPI.GetComponent<LocalTransform>(playerEntity).Position.xy,
-                ECB = ECB.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter()
+                ECB = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged).AsParallelWriter()
             }.ScheduleParallel();
         }
     }

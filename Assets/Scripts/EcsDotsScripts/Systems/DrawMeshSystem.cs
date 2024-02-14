@@ -19,7 +19,7 @@ namespace RoguelikeDots.Systems
                 return;
             
             var mesh = MaterialManager.Instance.QuadMesh;
-            //Geçici olarak 0. indexli material kullanılıyor
+            //Geçici olarak 0. indexli material kullanılıyor. Bu sistem şuan kullanılmadığı için ilerletmedim. Kullanılacaksa material id'ye göre seçim yapılmalı.
             var material = MaterialManager.Instance.GetMaterial(0);
             MaterialPropertyBlock propertyBlock = new MaterialPropertyBlock();
             int shaderPropertyId = Shader.PropertyToID("_MainTex_UV");
