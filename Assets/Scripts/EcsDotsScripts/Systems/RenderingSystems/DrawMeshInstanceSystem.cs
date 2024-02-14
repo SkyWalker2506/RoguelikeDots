@@ -3,7 +3,6 @@ using RoguelikeDots.Components;
 using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
-using Unity.Transforms;
 using UnityEngine;
 
 namespace RoguelikeDots.Systems
@@ -19,7 +18,7 @@ namespace RoguelikeDots.Systems
 
         protected override void OnStartRunning()
         {
-            entityQuery = SystemAPI.QueryBuilder().WithAll<SpriteAnimationData>().WithAll<MaterialData>().WithAll<LocalTransform>().Build();
+            entityQuery = SystemAPI.QueryBuilder().WithAll<SpriteAnimationData>().WithAll<MaterialData>().Build();
         }
 
         [BurstCompile]
@@ -30,9 +29,19 @@ namespace RoguelikeDots.Systems
                 var instanceID = MaterialManager.Instance.GetInstanceID(index);
                 entityQuery.SetSharedComponentFilter(new MaterialData {MaterialId = instanceID});
                 NativeArray<SpriteAnimationData> animationDataArray = entityQuery.ToComponentDataArray<SpriteAnimationData>(Allocator.TempJob);
-                NativeArray<LocalTransform> transformArray = entityQuery.ToComponentDataArray<LocalTransform>(Allocator.TempJob);
                 
-                DrawMeshInstance(animationDataArray);
+                try
+                {
+                    DrawMeshInstance(animationDataArray);
+                }
+                finally
+                {
+                    if (animationDataArray.IsCreated)
+                    {
+                        animationDataArray.Dispose();
+                    }
+                }
+                
             }
         }
         
@@ -59,7 +68,6 @@ namespace RoguelikeDots.Systems
                 }
 
             }
-            animationDataArray.Dispose();
 
             MaterialPropertyBlock propertyBlock = new MaterialPropertyBlock();
             var mesh = MaterialManager.Instance.QuadMesh;
