@@ -64,7 +64,7 @@ Shader "Custom/InstancedShader"
                 UNITY_SETUP_INSTANCE_ID(i);
  
                 fixed4 col = tex2D(_MainTex, i.uv) * UNITY_ACCESS_INSTANCED_PROP(Props, _Color);
-                clip(col.a - 30.0 / 255.0);
+                clip(col.a - .125f);
                 col.rgb *= col.a;
  
                 return col;
